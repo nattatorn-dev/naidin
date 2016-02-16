@@ -65,46 +65,51 @@ let CartStore = _.extend({}, EventEmitter.prototype, {
 
     getDiscountInformation: () => {
         let masterId = [],
-            local = [],
+            localData = [],
             totalDuplicate = 0,
             maxQuantity = 0,
             difference = null,
             promotionName = null;
 
         Object.keys(_products).map((i) => {
-          let localQty = _products[i].quantity;
-          let index = 1;
+          let localQty = _products[i].quantity,
+              index = 1;
+
           maxQuantity = maxQuantity < localQty ? localQty : maxQuantity;
           for(index; localQty >= index; index++){
             let localproduct = _products[i];
+
               localproduct.group = index;
               localproduct = _.extend({}, localproduct[i], localproduct);
-              local.push( localproduct)
+              localData.push( localproduct)
             }
 
         });
 
         for(let nextnumber = 1; nextnumber <= maxQuantity; nextnumber++){
-            let compareId = []; let compareTable = [];
+            let compareId = [],
+                compareTable = [];
 
-             Object.keys(local).map((i) => {
-               let itemGroup = local[i].group;
+             Object.keys(localData).map((i) => {
+               let itemGroup = localData[i].group;
+
                      if(itemGroup === 1){
-                         masterId.push(local[i]._id);
+                         masterId.push(localData[i]._id);
                      }
                      if(itemGroup === nextnumber){
-                         compareId.push(local[i]._id);
-                         compareTable.push(local[i]);
+                         compareId.push(localData[i]._id);
+                         compareTable.push(localData[i]);
                      }
              });
 
-              let aCompare = new Set(masterId);
-              let bCompare = new Set(compareId);
+              let master = new Set(masterId),
+                  compare = new Set(compareId);
 
-              difference = new Set([...aCompare].filter(x => !bCompare.has(x)));
+              difference = new Set([...master].filter(x => !compare.has(x)));
 
-              if(difference.size === 0 && (aCompare.size !== 1 && bCompare !== 1)){
-                  let promotion = setPromotion(aCompare.size)
+              if(difference.size === 0 && (master.size !== 1 && compare !== 1)){
+                  let promotion = setPromotion(master.size)
+                  
                   promotionName = promotion.promotion_name;
                   for (let [key, value] in compareTable) {
                       totalDuplicate += compareTable[key].price * promotion.discount;
