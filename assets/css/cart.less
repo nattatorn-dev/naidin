@@ -1,0 +1,55 @@
+@import "http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css";
+@import "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css";
+
+@color-white: rgba(255, 255, 255, 1);
+@color-gray: #999;
+@color-black: rgba(0,0,0,.5);
+
+.cart-wrap {
+  position: fixed;
+      right: 40px;
+      top: 10px;
+      height: 600px;
+      min-width: 300px;
+      overflow: auto;
+      background-color: @color-white;
+      background-clip: padding-box;
+      border: 1px solid @color-gray;
+      border-radius: 6px;
+      outline: 0;
+      box-shadow: 0 3px 9px @color-black;
+  .table{
+    padding: 0 10px;
+    list-style-type: none;
+    .remove {
+      display: block;
+      margin: 0 auto;
+      width: 100px;
+      height: 20px;
+      color: @color-white;
+      text-align: center;
+      border-radius: 5px;
+      background-color: #A94442;
+      cursor: pointer;
+    }
+  }
+  tfoot {
+    padding: 10px;
+    margin: 10px;
+    font-weight: 700;
+    color: @color-gray;
+    text-align: right;
+  }
+  &.hidden {
+    display: none;
+  }
+}
+
+.cart-ctr {
+  position: fixed;
+  right: 20px;
+  top: 15px;
+  width: 15px;
+  height: 10px;
+
+}

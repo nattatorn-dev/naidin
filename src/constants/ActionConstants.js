@@ -1,0 +1,10 @@
+import keyMirror from 'keymirror';
+
+module.exports = keyMirror({
+    RECEIVE_DATA: 'RECEIVE_DATA',
+    RECEIVE_PROMOTION_DATA: 'RECEIVE_PROMOTION_DATA',
+    SELECT_DATA: 'SELECT_DATA',
+    ADD_TO_CART: 'ADD_TO_CART',
+    SHOW_HIDE_CART: 'SHOW_HIDE_CART',
+    REMOVE_DATA: 'REMOVE_DATA'
+});

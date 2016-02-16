@@ -1,0 +1,44 @@
+@import "http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css";
+@import "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js";
+.cart-wrap {
+  position: fixed;
+  right: 40px;
+  top: 10px;
+  width: 200px;
+  height: 600px;
+  border: 1px solid #666;
+
+  .list{
+    padding: 0 10px;
+    list-style-type: none;
+
+    .item {
+      padding: 0;
+    }
+    .remove {
+      display: block;
+      margin: 0 auto;
+      width: 100px;
+      height: 30px;
+      line-height: 30px;
+      color: #fff;
+      text-align: center;
+      border-radius: 5px;
+      background-color: #86CEE3;
+      cursor: pointer;
+    }
+
+  }
+  &.hidden {
+    display: none;
+  }
+}
+
+.cart-ctr {
+  position: fixed;
+  right: 20px;
+  top: 15px;
+  width: 15px;
+  height: 10px;
+
+}
