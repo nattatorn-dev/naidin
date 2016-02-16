@@ -3,21 +3,21 @@ import AppAction from '../actions/AppAction';
 
 export default class Product extends React.Component {
 
-  constructor() {
+  constructor = () => {
     super();
     this.selectbook = this.selectbook.bind(this);
     this.addToCart = this.addToCart.bind(this);
   }
 
-  selectbook(evt) {
+  selectbook = (evt) =>{
     AppAction.selectProduct(evt.target.value);
   }
 
-  addToCart() {
+  addToCart = () => {
     AppAction.addToCart( this.props.selected);
   }
 
-  render() {
+  render = () =>{
 
     let selectedId = this.props.selected.id;
     let remain = (selectedId in this.props.cartItems) ?

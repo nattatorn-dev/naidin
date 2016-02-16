@@ -16,12 +16,12 @@ let getState = ()=> {
 }
 export default class CartApp extends React.Component {
 
-  constructor() {
+  constructor = () => {
     super();
     this.state = getState() ;
 
   }
-  componentDidMount() {
+  componentDidMount = () => {
       CartStore.addChangeListener(() => {
           this.setState(getState());
       });
@@ -30,7 +30,7 @@ export default class CartApp extends React.Component {
       });
   }
 
-  render() {
+  render = () => {
     return ( < div className = "cart-app" >
       < Product products={this.state.product} selected={this.state.selected} cartItems={this.state.cartItems} />
     < Cart cartItems={this.state.cartItems} visibile ={this.state.visibile} totalPrice={this.state.totalPrice}

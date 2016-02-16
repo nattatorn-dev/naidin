@@ -109,7 +109,7 @@ let CartStore = _.extend({}, EventEmitter.prototype, {
 
               if(difference.size === 0 && (master.size !== 1 && compare !== 1)){
                   let promotion = setPromotion(master.size)
-                  
+
                   promotionName = promotion.promotion_name;
                   for (let [key, value] in compareTable) {
                       totalDuplicate += compareTable[key].price * promotion.discount;

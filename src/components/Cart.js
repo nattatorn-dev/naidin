@@ -4,21 +4,21 @@ import AppAction from '../actions/AppAction';
 
 export default class Cart extends React.Component {
 
-  constructor() {
+  constructor = () => {
     super();
     this.showOrHideCart = this.showOrHideCart.bind(this);
     this.removeItem = this.removeItem.bind(this);
   }
 
-  showOrHideCart() {
+  showOrHideCart = () => {
     AppAction.showOrHideCart( this.props.visibile);
   }
 
-  removeItem(item) {
+  removeItem = (item) => {
     AppAction.removeItem(item);
   }
 
-  render() {
+  render = () => {
     let self = this;
     let visClass = this.props.visibile? '': 'hidden',
         apClass = this.props.visibile? 'fa-minus': 'fa-plus';
